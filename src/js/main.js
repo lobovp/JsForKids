@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*======4 OBJECTS======*/
 
@@ -255,7 +255,7 @@ true
 areArraysSame([1, 2, 3], [1, 2, 3, 4]);
 false*/
 
-function areArraysSame(arr1, arr2) {
+/*function areArraysSame(arr1, arr2) {
     for (let i = 0; i < arr1.length; i++){
         if (arr1[i] === arr2[i]){
             continue;
@@ -271,3 +271,45 @@ console.log(areArraysSame([1, 2, 3], [1, 2, 3]));
 //true
 console.log(areArraysSame([1, 2, 3], [1, 2, 3, 4]));
 /*======END 8 ФУНКЦИИ======*/
+
+/*======9 DOM&iQuery======*/
+//ANIMATION
+//9#1. Перечислите своих друзей (и сделайте их лучшими!)
+/*$("h1").fadeIn(2000);
+let friends = ['Petr','Andy',"Kirill"];
+console.log(friends);
+for (let i = 0; i < 3; i++){
+    $("body").append("<p>" + friends[i] + "</p>");
+}
+$("p").append(" лучший");
+for (let i = 1; i <= 5; i++){
+    $("h1").fadeOut(1000*i).fadeIn(1000*i);
+}
+//9#2. Мигающий заголовок
+/*Как с помощью fadeOut и fadeIn сделать так, чтобы заголовок
+мигнул пять раз с интервалом в секунду? Как сделать это в цикле
+for? А теперь измените цикл, чтобы заголовок появлялся
+и исчезал в первый раз за секунду, потом за две, потом за три
+и т. д.*/
+//9#2#1
+/*$("h1").fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000);*/
+
+//9#2#2
+/*for (let i = 0; i < 5; i++){
+	$('h1').fadeOut(1000).fadeIn(1000);
+}
+
+//#3. Отложенная анимация
+/*Для задержки анимации можно воспользоваться методом delay.
+С помощью delay, fadeOut и fadeIn заставьте какой-нибудь
+элемент плавно исчезнуть, а затем, через пять секунд, снова
+проявиться*/
+//$("div").fadeOut(1000).delay(5000).fadeIn(1000);
+
+//9#4. Метод fadeTo()
+/*Поэкспериментируйте с методом fadeTo. Первый его аргу-
+мент — число миллисекунд, как и у прочих методов анимации,
+а второй — число от 0 до 1.*/
+
+$("h1").fadeTo(2000, 1);
+/*======END 9 DOM&iQuery======*/
