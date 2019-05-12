@@ -404,35 +404,36 @@ let direction = "вправо";
 let offset = 0;
 let timeSpeed = 120;
 let clicks = 0;
+let titleH1 = $("#main-heading");
 /*let animateId = animate();*/
 
-$("#main-heading").offset({left:offset, top: offset});
+$(titleH1).offset({left:offset, top: offset});
 
 
 let animate = function () {
     if (direction === 'вправо') {
-        $("#main-heading").offset({ left: offset });
+        $(titleH1).offset({ left: offset });
         offset++;
         if (offset > 200) {
             offset = 0;
             direction = 'вниз';
         }
     } else if (direction === 'вниз') {
-        $("#main-heading").offset({ top: offset });
+        $(titleH1).offset({ top: offset });
         offset++;
         if (offset > 200) {
             offset = 200;
             direction = 'влево';
         }
     } else if (direction === 'влево') {
-        $("#main-heading").offset({ left: offset });
+        $(titleH1).offset({ left: offset });
         offset--;
         if (offset < 0) {
             offset = 200;
             direction = 'вверх';
         }
     } else if (direction === 'вверх') {
-        $("#main-heading").offset({ top: offset });
+        $(titleH1).offset({ top: offset });
         offset--;
         if (offset < 0) {
             offset = 0;
@@ -443,7 +444,7 @@ let animate = function () {
 
 let intervalId = setInterval(animate, timeSpeed);
 
-$("#main-heading").click(function (){
+$(titleH1).click(function (){
     clearInterval(intervalId);
     timeSpeed /=2;
     clicks++;
