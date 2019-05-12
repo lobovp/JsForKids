@@ -101,11 +101,17 @@ textarea {
  /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+h1{
+    text-align: center;
+    color: chocolate;
+}
 p{
 	color: chocolate;
 }
-
+img{
+    display: block;
+    text-align: center;
+}
 
 
 

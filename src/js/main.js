@@ -404,7 +404,7 @@ let direction = "вправо";
 let offset = 0;
 let timeSpeed = 120;
 let clicks = 0;
-let titleH1 = $("#main-heading");
+let titleH1 = $("#main-heading");// чтобы не было Duplicated jQuery Selector
 /*let animateId = animate();*/
 
 $(titleH1).offset({left:offset, top: offset});
