@@ -311,5 +311,147 @@ for? А теперь измените цикл, чтобы заголовок п
 мент — число миллисекунд, как и у прочих методов анимации,
 а второй — число от 0 до 1.*/
 
-$("h1").fadeTo(2000, 1);
+//$("h1").fadeTo(2000, 1);
 /*======END 9 DOM&iQuery======*/
+
+/*====== 10 Interactive programming ======*/
+
+//10.1 Отложенное выполнение кода и setTimeout
+//функцию timeUp, открывающую диа-
+// лог alert с сообщением "Время вышло!".
+/*let timeUp = function () {
+    alert("Время вышло!");
+};
+//вызвали setTimeout с двумя аргументами: функцией, которую нужно запустить
+// (timeUp), и числом миллисекунд (3000)
+setTimeout(timeUp, 3000);*/
+
+
+//10.2 Отмена действия таймера
+
+/*let doHomeWorkAlarm = function () {
+    alert("Эй! Пора делать домашку!!!!!!");
+}
+let timeoutId = setTimeout(doHomeWorkAlarm, 1000);*/
+
+//10.3 Многократный запуск кода и setInterval
+/*let clicks = 1;
+let printMessage = function () {
+    console.log("Ты смотришь в консоль уже " + clicks + " сек");
+    clicks++;
+};
+ let intervalId = setInterval(printMessage, 1000);
+/!*Ты смотришь в консоль уже 1 сек
+Ты смотришь в консоль уже 2 сек
+Ты смотришь в консоль уже 3 сек
+Ты смотришь в консоль уже 4 сек
+Ты смотришь в консоль уже 5 сек
+Ты смотришь в консоль уже 6 сек*!/
+clearInterval(intervalId);*/
+
+//10.4 Анимация элементов с помощью setInterval
+
+
+/*let leftOffset = 0;
+
+let moveHeading = function () {
+    $("#main-heading").offset({left:leftOffset});
+    leftOffset+= 10;
+    if (leftOffset > 200){
+        leftOffset = 0;
+    }
+};
+
+setInterval(moveHeading, 30);*/
+//10.5 Реакция на действия пользователя
+        //10.4.1 Реакция на клики
+             /*let clickHandler = function (event) {
+                console.log("Клик! " + event.pageX + " " + event.pageY);
+            };
+            $("h1").click(clickHandler);*/
+
+        //10.4.2 Событие mousemove
+        /*$("html").mousemove(function (event) {
+            $("#main-heading").offset({
+                left:event.pageX,
+                top: event.pageY
+            });
+        });*/
+//=====EXAMPLES======/
+
+//10#1  СЛЕДОМ ЗА КЛИКАМИ
+/*Измените последний пример с mousemove так, чтобы заголовок
+следовал не за указателем мышки, а только за кликами: вы кли-
+каете в любом месте страницы, и заголовок перемещается туда.*/
+/*$("html").click(function (event) {
+    $("#main-heading").offset({
+        left:event.pageX,
+        top: event.pageY
+        });
+});*/
+
+//10#2  СОЗДАЙТЕ СОБСТВЕННУЮ АНИМАЦИЮ
+/*Используйте setInterval для анимации заголовка h1, двигая
+его по квадрату, вдоль краев страницы. Пусть он переместится
+на 200 пикселей вправо, на 200 пикселей вниз, 200 пикселей
+влево, 200 пикселей вверх, а затем начнет с начала. Подсказка:
+нужно запоминать текущее направление (вправо, вниз, влево
+или вверх), чтобы знать, увеличивать или уменьшать для заго-
+ловка отступы слева (left) и сверху (top). Кроме того, при
+достижении угла квадрата нужно будет менять направление.*/
+
+let direction = "вправо";
+let offset = 0;
+let timeSpeed = 120;
+let clicks = 0;
+/*let animateId = animate();*/
+
+$("#main-heading").offset({left:offset, top: offset});
+
+
+let animate = function () {
+    if (direction === 'вправо') {
+        $("#main-heading").offset({ left: offset });
+        offset++;
+        if (offset > 200) {
+            offset = 0;
+            direction = 'вниз';
+        }
+    } else if (direction === 'вниз') {
+        $("#main-heading").offset({ top: offset });
+        offset++;
+        if (offset > 200) {
+            offset = 200;
+            direction = 'влево';
+        }
+    } else if (direction === 'влево') {
+        $("#main-heading").offset({ left: offset });
+        offset--;
+        if (offset < 0) {
+            offset = 200;
+            direction = 'вверх';
+        }
+    } else if (direction === 'вверх') {
+        $("#main-heading").offset({ top: offset });
+        offset--;
+        if (offset < 0) {
+            offset = 0;
+            direction = 'вправо';
+        }
+    }
+};
+
+let intervalId = setInterval(animate, timeSpeed);
+
+$("#main-heading").click(function (){
+    clearInterval(intervalId);
+    timeSpeed /=2;
+    clicks++;
+
+    if(clicks > 10){
+        alert("ВЫ победили");
+    }else {
+        intervalId = setInterval(animate,timeSpeed);
+    }
+});
+/*======END 10 Interactive programming======*/
