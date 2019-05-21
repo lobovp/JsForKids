@@ -75,7 +75,7 @@ drawSnowman(50, 50);
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
-let circle = function (x, y, radius,fillCircle) {
+/*let circle = function (x, y, radius,fillCircle) {
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, Math.PI * 2, false);
     if (fillCircle) {
@@ -103,4 +103,28 @@ let drawSnowman = function (x, y) {
 
 drawSnowman(100, 100);
 drawSnowman(0, 100);
+
+//13#2. Рисование по массиву точек
+/*Напишите функцию drawPoints, которая принимает массив
+с координатами точек:
+let points = [[50, 50], [50, 100], [100, 100], [100, 50], [50, 50]];
+drawPoints(points);
+*/
+let points = [[50, 50], [50, 100], [100, 100], [100, 50], [50, 50]];
+let drawPoints = function (arr) {
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.moveTo((arr[0][0]), (arr[0][1]));
+       for (let i = 0; i < arr.length; i++) {
+        ctx.lineTo((arr[i][0]), (arr[i][1]));
+    }
+    ctx.stroke();
+};
+let mysteryPoints = [[50, 50], [50, 100], [25, 120], [100, 50],
+    [70, 90], [100, 90], [70, 120]];
+drawPoints(mysteryPoints);
+//drawPoints(points);
+
+
+//13#3. Рисование мышкой
 /*====== END ЗАДАЧИ ======*/
