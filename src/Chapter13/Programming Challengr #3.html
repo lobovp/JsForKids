@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+</head>
+<body>
+<canvas id="canvas" height="400" width="400"> </canvas>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+<script>
+    //13#3. Рисование мышкой
+    /*С помощью jQuery и события mousemove напишите код, рисую-
+	щий окружность радиусом в 3 пикселя под курсором мышки каж-
+	дый раз, когда вы передвигаете мышку над «холстом». Поскольку
+	это событие возникает при малейшем перемещении курсора,
+	окружности по мере движения мышки будут сливаться в линию.*/
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+    
+//создадим функцию событие
+    let moveMouse = function(event){
+        let x = event.pageX;
+        let y = event.pageY;
+        console.log(x, y);
+        ctx.arc( x, y, 3, 0,Math.PI * 2,false);
+        ctx.stroke();
+    };
+    
+    $("html").mousemove(moveMouse);
+</script>
+</body>
+</html>

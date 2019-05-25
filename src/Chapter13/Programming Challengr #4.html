@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+</head>
+<body>
+<canvas id="canvas" height="400" width="400"> </canvas>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+<script>
+    //13#3. #4. Человечек в «Виселице»
+    /*В седьмой главе мы написали вариант игры «Виселица». Теперь
+    вы можете сделать ее более похожей на настоящую игру, рисуя
+    части тела человечка всякий раз, когда игрок вводит неверную
+    букву.
+        Подсказка: отслеживайте, сколько раз игрок ука-
+    зал букву, которой нет в слове. Напишите функцию,
+        которая принимает это число в качестве аргумента и в
+    зависимости от его значения рисует более или менее
+    завершенного человечка.*/
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+    // Создаем массив со словами
+    let words = ['программа','макака','прекрасный',"оладушек","вертолет","поезд","карусель"];
+    // Выбираем случайное слово
+    let word = words[Math.floor(Math.random()* words.length)];
+
+    // Создаем итоговый массив
+    let  answerArray = [];//массив с ответом
+    for (let i = 0; i < word.length; i++){
+        answerArray[i] = "_";
+    }
+    let remainingLetters = word.length;//оставшиеся буквы
+    let count = 0; //счетчик хзодов
+    let countBad = 0; //счетчик ошибок
+
+    // ИГРОВОЙ ЦИКЛ
+    while (remainingLetters > 0 && count < 3) {
+        // Показываем состояние игры
+        alert(answerArray.join(" "));
+        // Запрашиваем вариант ответа
+        let guess = prompt("Введите букву или нажмите Отмена для выхода из игры.").toLowerCase();
+        if (guess === null){
+            break;
+        }else if (guess.length !== 1){
+            alert("Пожалуйста введите только одну букву.");
+            // Обновляем answerArray и remainingLetters для каждого
+        }else {
+            for (let j = 0; j < word.length; j++) {
+                if(word[j] === answerArray[j]) continue;
+                if (word[j] === guess) {
+                    answerArray[j] = guess;
+                    remainingLetters--;
+                }
+            }
+            // Кол-во ходов
+            count++;
+        }// Конец игрового цикла
+    }
+    // Отображаем ответ и поздравляем игрока
+    alert(answerArray.join(" "));
+    alert("Отлично! Было загадано слово " + word);
+
+</script>
+</body>
+</html>

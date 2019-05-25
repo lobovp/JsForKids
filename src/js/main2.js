@@ -63,68 +63,10 @@ ctx.stroke();
 /*====== END DRAW LINE ======*/
 
 /*======  ЗАДАЧИ ======*/
-//13#1. Функция, рисующая снеговика
-/*Создайте на основе вашего кода для рисования снеговика
-(см. с. 205) функцию drawSnowman, которая рисует снеговика
-в указанной позиции на «холсте», — так, чтобы в результате
-вызова:
-drawSnowman(50, 50);
-снеговик появился в позиции (50, 50).
-*/
-//функция , рисующая окружности
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
-
-/*let circle = function (x, y, radius,fillCircle) {
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
-    if (fillCircle) {
-        ctx.fill();
-    } else {
-       ctx.stroke();
-    }
-};
-
-let drawSnowman = function (x, y) {
-    ctx.fillStyle = "Black";
-    ctx.lineWidth = 4;
-
-    circle(x + 200, y + 60, 40, false);
-    circle(x + 185, y + 50, 5, true);
-    circle(x + 215, y + 50, 5, true);
-    circle(x + 200, y + 150, 50, false);
-    circle(x + 200, y + 150, 5, true);
-    circle(x + 200, y + 130, 5, true);
-    circle(x + 200, y + 170, 5, true);
-
-    ctx.fillStyle = "red";
-    circle(x + 200, y + 60, 5, true);
-};
-
-drawSnowman(100, 100);
-drawSnowman(0, 100);
-
-//13#2. Рисование по массиву точек
-/*Напишите функцию drawPoints, которая принимает массив
-с координатами точек:
-let points = [[50, 50], [50, 100], [100, 100], [100, 50], [50, 50]];
-drawPoints(points);
-*/
-let points = [[50, 50], [50, 100], [100, 100], [100, 50], [50, 50]];
-let drawPoints = function (arr) {
-    ctx.fillStyle = "red";
-    ctx.beginPath();
-    ctx.moveTo((arr[0][0]), (arr[0][1]));
-       for (let i = 0; i < arr.length; i++) {
-        ctx.lineTo((arr[i][0]), (arr[i][1]));
-    }
-    ctx.stroke();
-};
-let mysteryPoints = [[50, 50], [50, 100], [25, 120], [100, 50],
-    [70, 90], [100, 90], [70, 120]];
-drawPoints(mysteryPoints);
-//drawPoints(points);
 
 
-//13#3. Рисование мышкой
+
+
+
+
 /*====== END ЗАДАЧИ ======*/

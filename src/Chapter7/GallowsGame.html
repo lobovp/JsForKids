@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Виселица</title>
+</head>
+<body>
+
+<script>
+    /*====== 7 ВИСИЛИЦА======*/
+    //ПСЕВДОКОД
+    /*Выбрать случайное слово
+		Пока слово не угадано {
+			Показать игроку текущее состояние игры
+			Запросить у игрока вариант ответа
+			Если игрок хочет выйти из игры {
+				Выйти из игры
+			}
+			Иначе Если вариант ответа — не одиночная буква {
+				Сообщить игроку, что он должен ввести букву
+			}
+			Иначе {
+				Если такая буква есть в слове {
+					Обновить состояние игры, подставив новую букву
+				}
+			 }
+		}
+		Поздравить игрока с победой — слово угадано
+	*/
+    // Создаем массив со словами
+    let words = ['программа','макака','прекрасный',"оладушек","вертолет","поезд","карусель"];
+	// Выбираем случайное слово
+	let word = words[Math.floor(Math.random()* words.length)];
+	
+	// Создаем итоговый массив
+	let  answerArray = [];//массив с ответом
+	for (let i = 0; i < word.length; i++){
+		answerArray[i] = "_";
+	}
+	let remainingLetters = word.length;//оставшиеся буквы
+	let count = 0;
+	
+	// ИГРОВОЙ ЦИКЛ
+	while (remainingLetters > 0 && count < 20) {
+	// Показываем состояние игры
+	alert(answerArray.join(" "));
+	// Запрашиваем вариант ответа
+		let guess = prompt("Введите букву или нажмите Отмена для выхода из игры.").toLowerCase();
+		if (guess === null){
+			break;
+		}else if (guess.length !== 1){
+			alert("Пожалуйста введите только одну букву.");
+			// Обновляем answerArray и remainingLetters для каждого
+		}else {
+			for (let j = 0; j < word.length; j++) {
+				if(word[j] === answerArray[j]) continue;
+			 if (word[j] === guess) {
+				 answerArray[j] = guess;
+				 remainingLetters--;
+				}
+			}
+			// Кол-во ходов
+			count++;
+		}// Конец игрового цикла
+	}
+		// Отображаем ответ и поздравляем игрока
+		alert(answerArray.join(" "));
+		alert("Отлично! Было загадано слово " + word);
+</script>
+</body>
+</html>

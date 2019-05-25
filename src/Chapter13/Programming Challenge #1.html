@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS</title>
+	
+</head>
+<body>
+	<canvas id="canvas" width = '400' height="400"> </canvas>
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+	<script src="../js/plugins.js"></script>
+	<script>
+        //13#1. Функция, рисующая снеговика
+        /*Создайте на основе вашего кода для рисования снеговика
+		(см. с. 205) функцию drawSnowman, которая рисует снеговика
+		в указанной позиции на «холсте», — так, чтобы в результате
+		вызова:
+		drawSnowman(50, 50);
+		снеговик появился в позиции (50, 50).
+		*/
+        //функция , рисующая окружности
+        let canvas = document.getElementById("canvas");
+		let ctx = canvas.getContext("2d");
+		
+		let circle = function (x, y, radius,fillCircle) {
+			ctx.beginPath();
+			ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+			if (fillCircle) {
+				ctx.fill();
+			} else {
+			   ctx.stroke();
+			}
+		};
+		
+		let drawSnowman = function (x, y) {
+			ctx.fillStyle = "Black";
+			ctx.lineWidth = 4;
+		
+			circle(x + 200, y + 60, 40, false);
+			circle(x + 185, y + 50, 5, true);
+			circle(x + 215, y + 50, 5, true);
+			circle(x + 200, y + 150, 50, false);
+			circle(x + 200, y + 150, 5, true);
+			circle(x + 200, y + 130, 5, true);
+			circle(x + 200, y + 170, 5, true);
+		
+			ctx.fillStyle = "red";
+			circle(x + 200, y + 60, 5, true);
+		};
+		
+		drawSnowman(100, 100);
+		drawSnowman(0, 100);
+		
+</script>
+</body>
+</html>
