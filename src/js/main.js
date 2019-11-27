@@ -265,7 +265,7 @@ for? А теперь измените цикл, чтобы заголовок п
 };
 //вызвали setTimeout с двумя аргументами: функцией, которую нужно запустить
 // (timeUp), и числом миллисекунд (3000)
-setTimeout(timeUp, 3000);*/
+//setTimeout(timeUp, 3000);*/
 
 
 //10.2 Отмена действия таймера
@@ -305,19 +305,19 @@ let moveHeading = function () {
 
 setInterval(moveHeading, 30);*/
 //10.5 Реакция на действия пользователя
-        //10.4.1 Реакция на клики
-             /*let clickHandler = function (event) {
-                console.log("Клик! " + event.pageX + " " + event.pageY);
-            };
+//10.4.1 Реакция на клики
+/*let clickHandler = function (event) {
+console.log("Клик! " + event.pageX + " " + event.pageY);
+};
             $("h1").click(clickHandler);*/
 
-        //10.4.2 Событие mousemove
-        /*$("html").mousemove(function (event) {
-            $("#main-heading").offset({
-                left:event.pageX,
-                top: event.pageY
-            });
-        });*/
+//10.4.2 Событие mousemove
+/*$("html").mousemove(function (event) {
+    $("#main-heading").offset({
+        left:event.pageX,
+        top: event.pageY
+    });
+});*/
 //=====EXAMPLES======/
 
 //10#1  СЛЕДОМ ЗА КЛИКАМИ
@@ -341,14 +341,14 @@ setInterval(moveHeading, 30);*/
 ловка отступы слева (left) и сверху (top). Кроме того, при
 достижении угла квадрата нужно будет менять направление.*/
 
-let direction = "вправо";
+/*let direction = "вправо";
 let offset = 0;
 let timeSpeed = 120;
 let clicks = 0;
 let titleH1 = $("#main-heading");// чтобы не было Duplicated jQuery Selector
 /*let animateId = animate();*/
 
-$(titleH1).offset({left:offset, top: offset});
+/*$(titleH1).offset({left:offset, top: offset});
 
 
 let animate = function () {
@@ -395,5 +395,9 @@ $(titleH1).click(function (){
     }else {
         intervalId = setInterval(animate,timeSpeed);
     }
-});
+});*/
 /*======END 10 Interactive programming======*/
+let a = 5;
+let b = 7;
+let c;
+console.log(a * b * c);
